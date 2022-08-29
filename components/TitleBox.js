@@ -9,8 +9,9 @@ import styles from '../styles/TitleBox.module.css';
 const TitleBox = () => {
   return (
     <div>
-      <input className = {styles.titlebox} type="text" 
-             name="Event-Title" placeholder="Enter event title" 
+      <input className = {styles.titlebox} 
+             name="Event-Title" 
+             type="text" 
       />
     </div>
   )
