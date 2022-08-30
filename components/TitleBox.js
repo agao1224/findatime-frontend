@@ -9,7 +9,7 @@ import styles from '../styles/TitleBox.module.css';
 const TitleBox = () => {
   return (
     <div>
-      <input className = {styles.titlebox} 
+      <input className={styles.titlebox} 
              name="Event-Title" 
              type="text" 
       />
