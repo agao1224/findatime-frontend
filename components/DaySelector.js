@@ -2,54 +2,36 @@
 /**
  * @Component Select days for event planning
  */
-const DaySelector = () => {
+ const DaySelector = () => {
   return (
     <div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault">
+      <div className="list-group">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Monday
         </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Tuesday
         </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Wednesday
         </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Thursday
         </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Friday
         </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Saturday
         </label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault">
+        <label className="list-group-item">
+          <input className="form-check-input me-1" type="checkbox" value="" />
           Sunday
         </label>
       </div>
