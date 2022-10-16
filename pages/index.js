@@ -37,6 +37,10 @@ const Home = () => {
                         timeText={"Meet no later than..."} key={2} />
         </div>
       </div>
+      
+      <div className={styles.createbutton}>
+        <button type="button" className="btn btn-success btn-lg">Create Event!</button>
+      </div>
 
       <footer className={styles.footer}>
       </footer>
