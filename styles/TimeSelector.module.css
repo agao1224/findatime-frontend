@@ -4,6 +4,7 @@
 
 .timetext {
   display: inline;
+  white-space: nowrap;
   margin: 0 1rem;
 }
 
