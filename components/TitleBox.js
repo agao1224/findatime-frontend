@@ -5,11 +5,11 @@ import styles from '../styles/TitleBox.module.css';
 import { useState } from 'react'
 
 /**
- * @Component Create Event Button
+ * @Component Button for TestSaveTitle
  */
 const Button = (props) => {
   return ( 
-    <input type="button" name="Create Event Button" value="Create Event" onClick={props.onClick} className={styles.button}/>
+    <input type="button" name="Create Event Button" value="Check Event Title" onClick={props.onClick} className={styles.button}/>
     )
 } 
 
@@ -23,26 +23,27 @@ const TitleBox = (props) => {
     </form>
   )
 }
+
 /**
  * @Component Main Function For TitleBox
  */
 const renderTitleBox = () => {
-  const [eventTitle] = useState(0)
+  const [eventTitle] = useState("")
 
   // Keeps track of the Event Title
   const listenEventTitle = (e) => {
     eventTitle = e.target.value;
-
     // Debugging: check eventTitle
     console.log(eventTitle)
   }
 
-  // Creates Event -> 
-  const handleCreateEvent = () => {
+  // Test if the Event Name is saved
+  const TestSaveTitle = () => {
     if (eventTitle === "") {
       alert("Please enter Event name!");
-    } 
-    console.log(eventTitle);
+    } else {
+      alert("Event: " + eventTitle)
+    }
   }
 
   return (
@@ -51,7 +52,7 @@ const renderTitleBox = () => {
         onChange={listenEventTitle}
       />
       <Button 
-        onClick={handleCreateEvent}
+        onClick={TestSaveTitle}
       />
     </div>
   )
