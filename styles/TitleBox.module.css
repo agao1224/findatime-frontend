@@ -9,3 +9,16 @@
   border-radius: 10px;
   text-align: center;
 }
+
+.button {
+  border-radius: 5px;
+  border-width: thin;
+  text-align: center;
+
+  color: black;
+  background-color: white;
+
+  position: relative;
+  margin-top: 10px;
+  margin-left: 70px;
+}
