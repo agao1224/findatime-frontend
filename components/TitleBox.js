@@ -28,11 +28,11 @@ const TitleBox = (props) => {
  * @Component Main Function For TitleBox
  */
 const renderTitleBox = () => {
-  const [eventTitle] = useState("")
+  const [eventTitle, setEventTitle] = useState("")
 
   // Keeps track of the Event Title
-  const listenEventTitle = (e) => {
-    eventTitle = e.target.value;
+  const handleChange = (e) => {
+    setEventTitle(e.target.value);
     // Debugging: check eventTitle
     console.log(eventTitle)
   }
@@ -49,7 +49,7 @@ const renderTitleBox = () => {
   return (
     <div>
       <TitleBox 
-        onChange={listenEventTitle}
+        onChange={handleChange}
       />
       <Button 
         onClick={TestSaveTitle}
