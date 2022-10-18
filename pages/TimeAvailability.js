@@ -8,7 +8,6 @@
 const TimeAvailability = () => {
     return (
         <div>
-            
         </div>
     )
 }
