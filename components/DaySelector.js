@@ -46,12 +46,12 @@
           Friday
         </label>
         <label className="list-group-item">
-          <input className="form-check-input me-1" type="checkbox" value="Sat" 
+          <input className="form-check-input me-1" type="checkbox" value="S" 
            onChange={(event) => handleDayChange(event)}/>
           Saturday
         </label>
         <label className="list-group-item">
-          <input className="form-check-input me-1" type="checkbox" value="Sun" 
+          <input className="form-check-input me-1" type="checkbox" value="Su" 
            onChange={(event) => handleDayChange(event)}/>
           Sunday
         </label>
