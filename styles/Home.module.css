@@ -35,6 +35,11 @@
   text-align: center;
 }
 
+.titlebox {
+  font-size: 2rem;
+  
+}
+
 .footer {
   display: flex;
   flex: 1;
