@@ -1,3 +1,16 @@
 .selector {
   margin: 5rem;
 }
+
+.timetext {
+  display: inline;
+  white-space: nowrap;
+  margin: 0 1rem;
+}
+
+@media (max-width: 4rem) {
+  .dropdown-menu{
+      height: 1.5rem;
+      overflow-y: auto;
+  }
+}

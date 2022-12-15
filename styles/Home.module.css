@@ -20,11 +20,19 @@
 }
 
 .dayselector {
-  margin: 5rem;
+  margin: 0 11rem;
+  flex: 0.4;
 }
 
 .timeselector {
-  margin: 5rem;
+  flex: 1;
+  margin: 0 5rem;
+  text-align: right;
+}
+
+.createbutton {
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .titlebox {

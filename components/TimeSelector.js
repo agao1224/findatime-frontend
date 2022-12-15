@@ -6,39 +6,54 @@ import styles from '../styles/TimeSelector.module.css';
 /**
  * @Component TimeSelector 
  */
-const TimeSelector = () => {
+const TimeSelector = ({timeBound, setTimeBound, timeText}) => {
+  const convertTimeToText = (time) => {
+    let timeText = "";
+    let ampmStatus = "";
+    if (time == 0) {
+      ampmStatus = "AM"
+      time += 12;
+    } else if (time < 12) {
+      ampmStatus = "AM";
+    } else if (time == 12) {
+      ampmStatus = "PM";
+    } else if (time == 24) {
+      ampmStatus = "AM";
+      time -= 12;
+    } else {
+      ampmStatus = "PM";
+      time -= 12;
+    } 
+
+    return timeText.concat(time.toString().concat(":00")).concat(" ").concat(ampmStatus);
+  }
+
+  const createTimesArray = (hrs) => {
+    const timesArray = []
+    for (let i = 0; i <= hrs; i++) {
+      timesArray.push(convertTimeToText(i));
+    }
+    return timesArray;
+  }
+
+  const timesArray = createTimesArray(24);
   return (
     <div className={styles.selector}>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          Start time 
+      <h5 className={styles.timetext}>
+        {timeText}
+      </h5>
+      <div className="btn-group dropend">
+        <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          {timeBound}
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">12:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">1:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">2:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">3:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">4:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">5:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">6:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">7:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">8:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">9:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">10:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">11:00 AM</a></li>
-          <li><a class="dropdown-item" href="#">12:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">1:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">2:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">3:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">4:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">5:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">6:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">7:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">8:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">9:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">10:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">11:00 PM</a></li>
-          <li><a class="dropdown-item" href="#">12:00 AM</a></li>
+        <ul className="dropdown-menu" style={{height: "10rem", overflowY: "auto"}}>
+          {timesArray.map((time) =>
+            <li key={Math.random()}>
+              <a className="dropdown-item" href="#" key={Math.random()} onClick={() => setTimeBound(time)}> 
+                {time}
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </div>
