@@ -32,7 +32,7 @@ const Home = () => {
     if (time.charAt(1) === ":") {
       offset = (parseInt(time.charAt(0)))
     } else {
-      let tmp = parseInt((time.charAt(0) + "" + time.charAt(1)));
+      offset = parseInt((time.charAt(0) + "" + time.charAt(1)));
     }
     offset = offset * 100;
     return (militaryTime + offset);
@@ -57,8 +57,7 @@ const Home = () => {
     })
 
     const createEventData = await createEventResponse.json();
-    console.log(createEventData);
-    alert("Event Created!");
+    alert(`Event Created! Event link: ${createEventData.uri}`);
   }
 
   return (
@@ -68,7 +67,7 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1> Event Title </h1>
+        <h1> Name your Event! </h1>
         <div className={styles.titlebox}>
           <div className="form-floating">
             <input className="form-control form-control-lg" type="text" 
