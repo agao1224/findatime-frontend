@@ -5,9 +5,46 @@ import styles from '../styles/LoginForm.module.css'
 
 import { useState } from 'react';
 
-const LoginForm = () => {
+const LoginForm = ({loginStatus, setLoginStatus, eventURI}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const loginOrRegister = async () => {
+    // Backend already handles cases where user exists, doesn't exist
+    // Simply query from database and use the link they return you
+    const loginObj = {
+      username: username,
+      password: password
+    }
+
+    console.log(loginObj);
+
+    const loginResponse = await fetch(`http://localhost:5000/login/${eventURI}`, {
+      method: "POST",
+      body: JSON.stringify(loginObj),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const handleLoginResponse = async (loginResponse) => {
+      try {
+        return await loginResponse.json();
+      } catch (err) {
+        alert("Invalid credentials.");
+      }
+    }
+
+    const loginData = await handleLoginResponse(loginResponse);
+    console.log(loginData);
+
+    if (loginData && loginData["accessToken"] != null) {
+      setLoginStatus(true);
+      alert("Login success!");
+    } else {
+      alert("Login failed!");
+    }
+  }
   
   return (
     <div>
@@ -33,7 +70,10 @@ const LoginForm = () => {
       </div>
       
       <div className={styles.loginbutton}>
-        <button type="button" class="btn btn-primary">Login/Register</button>
+        <button type="button" class="btn btn-primary"
+         onClick={loginOrRegister}>
+          Login
+        </button>
       </div>
     </div>
   )

@@ -32,7 +32,7 @@ const Home = () => {
     if (time.charAt(1) === ":") {
       offset = (parseInt(time.charAt(0)))
     } else {
-      let tmp = parseInt((time.charAt(0) + "" + time.charAt(1)));
+      offset = parseInt((time.charAt(0) + "" + time.charAt(1)));
     }
     offset = offset * 100;
     return (militaryTime + offset);

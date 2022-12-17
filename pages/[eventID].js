@@ -47,7 +47,8 @@ const EventPage = () => {
         </a>
         <div className={styles.eventcontainer}>
           <div className={styles.eventlogin}>
-            <LoginForm loginStatus={loginStatus} setLoginStatus={setLoginStatus}/>
+            <LoginForm loginStatus={loginStatus} setLoginStatus={setLoginStatus}
+                        eventURI={query.eventID}/>
           </div>
           <div className={styles.availselect}>
             helloworld
