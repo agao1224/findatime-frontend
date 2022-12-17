@@ -57,8 +57,7 @@ const Home = () => {
     })
 
     const createEventData = await createEventResponse.json();
-    console.log(createEventData);
-    alert("Event Created!");
+    alert(`Event Created! Event link: ${createEventData.uri}`);
   }
 
   return (
