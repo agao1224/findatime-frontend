@@ -6,6 +6,8 @@ import styles from '../styles/EventPage.module.css'
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 
+import LoginForm from '../components/LoginForm';
+
 /**
  * @Component Page to render event information given specific
  *        event ID (uri)
@@ -13,7 +15,10 @@ import React, { useState, useEffect } from 'react';
 const EventPage = () => {
   const [eventInfo, setEventInfo] = useState({});
   const { query, isReady } = useRouter();
+  const [link, setLink] = useState("Copy meeting link");
   const [loaded, setLoaded] = useState(false);
+
+  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     if (!isReady) {
@@ -33,6 +38,21 @@ const EventPage = () => {
     return (
       <div className={styles.eventmain}>
         <h1> {eventInfo.name} </h1>
+        <a style={{ cursor:"pointer", color: "#3366CC" }} href={null}
+           onClick={() => {
+            navigator.clipboard.writeText(`http://localhost:3000/${query.eventID}`);
+            setLink("Link copied!");
+           }}>
+          {link}
+        </a>
+        <div className={styles.eventcontainer}>
+          <div className={styles.eventlogin}>
+            <LoginForm loginStatus={loginStatus} setLoginStatus={setLoginStatus}/>
+          </div>
+          <div className={styles.availselect}>
+            helloworld
+          </div>
+        </div>
       </div>
     )
   } else {

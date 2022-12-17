@@ -2,13 +2,22 @@
   margin: 5rem;
 }
 
-.main {
-  min-height: 30vh;
+.eventlogin {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  text-align: center;
   justify-content: center;
-  align-items: center;
+  justify-self: center;
+}
+
+.availselect {
+  flex: 2;
+}
+
+.eventcontainer {
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .body {
