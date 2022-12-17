@@ -19,6 +19,7 @@ const EventPage = () => {
   const [loaded, setLoaded] = useState(false);
 
   const [loginStatus, setLoginStatus] = useState(false);
+  const [accessToken, setAccessToken] = useState("");
 
   useEffect(() => {
     if (!isReady) {
@@ -48,7 +49,7 @@ const EventPage = () => {
         <div className={styles.eventcontainer}>
           <div className={styles.eventlogin}>
             <LoginForm loginStatus={loginStatus} setLoginStatus={setLoginStatus}
-                        eventURI={query.eventID}/>
+                        eventURI={query.eventID} accessToken={accessToken} setAccessToken={setAccessToken}/>
           </div>
           <div className={styles.availselect}>
             helloworld

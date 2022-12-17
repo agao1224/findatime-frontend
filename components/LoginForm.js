@@ -5,7 +5,8 @@ import styles from '../styles/LoginForm.module.css'
 
 import { useState } from 'react';
 
-const LoginForm = ({loginStatus, setLoginStatus, eventURI}) => {
+const LoginForm = ({loginStatus, setLoginStatus, eventURI, 
+                    accessToken, setAccessToken}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -41,6 +42,7 @@ const LoginForm = ({loginStatus, setLoginStatus, eventURI}) => {
     if (loginData && loginData["accessToken"] != null) {
       setLoginStatus(true);
       alert("Login success!");
+      setAccessToken(loginData["accessToken"]);
     } else {
       alert("Login failed!");
     }

@@ -67,7 +67,7 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1> Event Title </h1>
+        <h1> Name your Event! </h1>
         <div className={styles.titlebox}>
           <div className="form-floating">
             <input className="form-control form-control-lg" type="text" 
