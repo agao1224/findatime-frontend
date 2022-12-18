@@ -15,7 +15,9 @@
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-schedule-selector": "^3.0.0",
     "sass": "^1.54.5",
+    "styled-components": "^5.3.6",
     "swr": "^2.0.0"
   },
   "devDependencies": {

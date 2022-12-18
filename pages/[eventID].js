@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 
 import LoginForm from '../components/LoginForm';
+import AvailabilitySelector from '../components/AvailabilitySelector';
 
 /**
  * @Component Page to render event information given specific
@@ -52,7 +53,7 @@ const EventPage = () => {
                         eventURI={query.eventID} accessToken={accessToken} setAccessToken={setAccessToken}/>
           </div>
           <div className={styles.availselect}>
-            helloworld
+            <AvailabilitySelector />
           </div>
         </div>
       </div>
