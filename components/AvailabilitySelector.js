@@ -44,8 +44,7 @@ class AvailabilitySelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      schedule: [],
-      dayArray: this.props.daysSelected
+      schedule: []
     }
   }
 
@@ -66,15 +65,15 @@ class AvailabilitySelector extends React.Component {
           }
           return (
             <ScheduleSelector
-            selection={this.state.schedule}
-            numDays={1}
-            minTime={8}
-            maxTime={22}
-            hourlyChunks={1}
-            onChange={this.handleChange}
-            dateFormat={"dddd"}
-            startDate={currStartDate} 
-          />)
+              selection={this.state.schedule}
+              numDays={1}
+              minTime={this.props.startTime/100}
+              maxTime={this.props.endTime/100}
+              hourlyChunks={1}
+              onChange={this.handleChange}
+              dateFormat={"dddd"}
+              startDate={currStartDate}/>
+          )
         }
       )}
       </div>
