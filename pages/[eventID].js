@@ -14,7 +14,12 @@ import AvailabilitySelector from '../components/AvailabilitySelector';
  *        event ID (uri)
  */
 const EventPage = () => {
-  const [eventInfo, setEventInfo] = useState({});
+  const [eventInfo, setEventInfo] = useState({
+    name: "",
+    days: [],
+    startTime: 0,
+    endTime: 2400
+  });
   const { query, isReady } = useRouter();
   const [link, setLink] = useState("Copy meeting link");
   const [loaded, setLoaded] = useState(false);
@@ -52,8 +57,8 @@ const EventPage = () => {
             <LoginForm loginStatus={loginStatus} setLoginStatus={setLoginStatus}
                         eventURI={query.eventID} accessToken={accessToken} setAccessToken={setAccessToken}/>
           </div>
-          <div className={styles.availselect}>
-            <AvailabilitySelector />
+          <div className={styles.availselect}>            
+            <AvailabilitySelector daysSelected={eventInfo.days} />
           </div>
         </div>
       </div>

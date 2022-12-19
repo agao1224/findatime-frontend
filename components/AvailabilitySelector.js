@@ -6,11 +6,46 @@ import React from 'react';
 
 import ScheduleSelector from 'react-schedule-selector'
 
+const dayToStartDate = (day) => {
+  // Basically arbitarily picked some date and just use it to label
+  // days of the week
+  let dayInISO = "";
+  switch (day) {
+    case "M":
+      dayInISO = "2022-12-19T23:10:47+0000";
+      break;
+    case "T":
+      dayInISO = "2022-12-20T23:10:47+0000";
+      break;
+    case "W":
+      dayInISO = "2022-12-21T23:10:47+0000";
+      break;
+    case "Th":
+      dayInISO = "2022-12-22T23:10:47+0000";
+      break;
+    case "F":
+      dayInISO = "2022-12-23T23:10:47+0000";
+      break;
+    case "S":
+      dayInISO = "2022-12-24T23:10:47+0000";
+      break;
+    case "Su":
+      dayInISO = "2022-12-25T23:10:47+0000";
+      break; 
+    default: 
+      console.log("Invalid day of week selected.");
+      throw new Error("Invalid day of week selected.");
+  }
+  return dayInISO;
+}
+
+
 class AvailabilitySelector extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      schedule: []
+      schedule: [],
+      dayArray: this.props.daysSelected
     }
   }
 
@@ -21,26 +56,27 @@ class AvailabilitySelector extends React.Component {
   render() {
     return (
       <div className={styles.availwrapper}>
-        <ScheduleSelector
-          selection={this.state.schedule}
-          numDays={1}
-          minTime={8}
-          maxTime={22}
-          hourlyChunks={1}
-          onChange={this.handleChange}
-          dateFormat={"dddd"}
-          startDate={"2022-12-18T22:47:10+0000"}
-        />
-        <ScheduleSelector
-          selection={this.state.schedule}
-          numDays={1}
-          minTime={8}
-          maxTime={22}
-          hourlyChunks={1}
-          onChange={this.handleChange}
-          dateFormat={"dddd"}
-          startDate={"2022-12-20T22:47:10+0000"}
-        />  
+      {(this.props.daysSelected).map((day) => 
+        { 
+          let currStartDate = "2022-12-18T23:10:47+0000";
+          try {
+            currStartDate = dayToStartDate(day);
+          } catch (e) {
+            console.log("ERROR: Unexpected day value found");
+          }
+          return (
+            <ScheduleSelector
+            selection={this.state.schedule}
+            numDays={1}
+            minTime={8}
+            maxTime={22}
+            hourlyChunks={1}
+            onChange={this.handleChange}
+            dateFormat={"dddd"}
+            startDate={currStartDate} 
+          />)
+        }
+      )}
       </div>
     )
   }
