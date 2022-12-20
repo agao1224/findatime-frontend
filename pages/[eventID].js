@@ -58,7 +58,8 @@ const EventPage = () => {
                         eventURI={query.eventID} accessToken={accessToken} setAccessToken={setAccessToken}/>
           </div>
           <div className={styles.availselect}>            
-            <AvailabilitySelector daysSelected={eventInfo.days} startTime={eventInfo.startTime} endTime={eventInfo.endTime}/>
+            <AvailabilitySelector daysSelected={eventInfo.days} startTime={eventInfo.startTime} endTime={eventInfo.endTime}
+              loginStatus={loginStatus}/> 
           </div>
         </div>
       </div>

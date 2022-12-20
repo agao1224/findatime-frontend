@@ -39,6 +39,15 @@ const dayToStartDate = (day) => {
   return dayInISO;
 }
 
+const availToSelection = (availArray) => {
+  // [ {user: “Andrew”, times: [ { day: “M”, start: 900, end: 1000 } ] 	} ]
+  
+}
+
+const selectionToAvail = (schedule) => {
+
+}
+
 
 class AvailabilitySelector extends React.Component {
   constructor(props) {
@@ -49,7 +58,11 @@ class AvailabilitySelector extends React.Component {
   }
 
   handleChange = newSchedule => {
-    this.setState({ schedule: newSchedule })
+    this.setState({ schedule: newSchedule });
+    console.log(newSchedule);
+    // console.log(typeof newSchedule[0]);
+    // console.log(newSchedule[0].getHours());
+    // console.log(newSchedule[1].getHours());
   }
 
   render() {
