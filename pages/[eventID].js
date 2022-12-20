@@ -7,13 +7,19 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 
 import LoginForm from '../components/LoginForm';
+import AvailabilitySelector from '../components/AvailabilitySelector';
 
 /**
  * @Component Page to render event information given specific
  *        event ID (uri)
  */
 const EventPage = () => {
-  const [eventInfo, setEventInfo] = useState({});
+  const [eventInfo, setEventInfo] = useState({
+    name: "",
+    days: [],
+    startTime: 0,
+    endTime: 2400
+  });
   const { query, isReady } = useRouter();
   const [link, setLink] = useState("Copy meeting link");
   const [loaded, setLoaded] = useState(false);
@@ -51,8 +57,9 @@ const EventPage = () => {
             <LoginForm loginStatus={loginStatus} setLoginStatus={setLoginStatus}
                         eventURI={query.eventID} accessToken={accessToken} setAccessToken={setAccessToken}/>
           </div>
-          <div className={styles.availselect}>
-            helloworld
+          <div className={styles.availselect}>            
+            <AvailabilitySelector daysSelected={eventInfo.days} startTime={eventInfo.startTime} endTime={eventInfo.endTime}
+              loginStatus={loginStatus}/> 
           </div>
         </div>
       </div>

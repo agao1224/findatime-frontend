@@ -11,6 +11,8 @@
 
 .availselect {
   flex: 2;
+  justify-content: center;
+  text-align: center;
 }
 
 .eventcontainer {
