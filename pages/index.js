@@ -5,6 +5,8 @@ import Head from 'next/head';
 import DaySelector from '../components/DaySelector';
 import TimeSelector from '../components/TimeSelector';
 import styles from '../styles/Home.module.css';
+import AvailabilitySelector from '../components/AvailabilitySelector/AvailabilitySelector';
+import 'tachyons';
 
 import { useState } from 'react';
 
@@ -81,8 +83,8 @@ const Home = () => {
       </main>
 
       <div className={styles.body}>
-        <div className={styles.dayselector}>
-          <DaySelector days={days} setDays={setDays}/>
+        <div className='pa5 center'>
+          <AvailabilitySelector />
         </div>
         <div className={styles.timeselector}>
           <TimeSelector timeBound={startTime} setTimeBound={setStartTime} 
