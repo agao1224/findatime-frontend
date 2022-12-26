@@ -1,0 +1,9 @@
+.schedwrapper {
+  text-align: center;
+}
+
+.schedselect {
+  outline: 0.25rem;
+  padding: 5rem;
+  outline-color: black;
+}
