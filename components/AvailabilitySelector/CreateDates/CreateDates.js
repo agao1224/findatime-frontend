@@ -59,12 +59,6 @@ const CreateDates = () => {
     const currentDay = convertDayToNum[moment().format('ddd')]
     const pastDates = getPastDates(currentDay)
     const weeks = getNextDays(pastDates)
-    console.log("Dates for each Weeks:")
-    console.log(weeks[0])
-    console.log(weeks[1]) 
-    console.log(weeks[2]) 
-    console.log(weeks[3]) 
-    console.log(weeks[4])
 
     /**
      * Given current date, set date to respective day 

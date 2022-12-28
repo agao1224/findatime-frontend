@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from "./DateBoxes.module.css"
 
-const DateBoxes = (prop) => {
+const DateBoxes = (props) => {
     const dateStyle = ["btn", "btn-primary", "rounded", styles["btn_square_date"]].join(" ")
     const monthStyle = ["btn", "btn-white", "rounded", "border-0", styles["btn_square_month"]].join(" ")
-
+    
+    const { week, flagToday, today } = props
     const months = {
         "1" : "Jan",
         "2" : "Feb",
@@ -20,8 +21,11 @@ const DateBoxes = (prop) => {
         "12" : "Dec"
     }
 
-    const { week, flagToday, today } = prop
 
+    /**
+     * Return a button for the current week's month, and highlighting 
+     * the current month.
+     */
     const findMonth = () => {
         const month = months[week[0].split('/')[0]] 
         return (
@@ -31,12 +35,12 @@ const DateBoxes = (prop) => {
             )
     }
 
+    /**
+     * map over the dates, and return buttons for each date, 
+     * highlighting today as well.
+     */
     const convertDates = week.map((date, day) => {
         const dateNum = date.split('/')[1]
-        console.log("today: ", today, "date: ", date)
-        if (flagToday && day === today) {
-            console.log("hi", date)
-        }
         return (
             (flagToday && day === today) 
             ? <button key={day} type="button" className={dateStyle}><b>{dateNum}</b></button>
