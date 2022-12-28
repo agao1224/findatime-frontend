@@ -84,7 +84,9 @@ const Home = () => {
 
       <div className={styles.body}>
         <div className='pa5 center'>
-          <AvailabilitySelector />
+          <div>
+            <AvailabilitySelector />
+          </div>
         </div>
         <div className={styles.timeselector}>
           <TimeSelector timeBound={startTime} setTimeBound={setStartTime} 

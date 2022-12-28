@@ -4,28 +4,16 @@ import DateBoxes from '../DateBoxes/DateBoxes'
 
 const CreateDates = () => {    
     /**
-     * Returns the "day" of today's date
+     * Object of the "days" and the corresponding number (0-indexed)
      */
-    const findCurrentDay = () => {
-        const getDay = moment().format('ddd') 
-        switch(getDay) {
-            case "Sun":
-                return 0;
-            case "Mon":
-                return 1;
-            case "Tue":
-                return 2;
-            case "Wed":
-                return 3;
-            case "Thu":
-                return 4;
-            case "Fri":
-                return 5;
-            case "Sat":
-                return 6;
-            default:
-                return -1
-        }
+    const convertDayToNum = {
+        "Sun" : 0,
+        "Mon" : 1,
+        "Tue" : 2,
+        "Wed" : 3,
+        "Thu" : 4,
+        "Fri" : 5,
+        "Sat" : 6,
     }
 
     /**
@@ -33,14 +21,12 @@ const CreateDates = () => {
      */
     const getPastDates = (currentDay) => {
         const pastDatesArray = []
-        let counter = 0
 
-        while (counter < currentDay) {
-            const yesterdays =  moment().subtract(counter+1, 'days').format('l');
+        while (currentDay > 0) {
+            const yesterdays =  moment().subtract(currentDay, 'days').format('l');
             pastDatesArray.push(yesterdays)
-            counter++;
+            currentDay--;
         }
-        console.log(pastDatesArray)
         return pastDatesArray
     }
 
@@ -49,11 +35,18 @@ const CreateDates = () => {
      * week contains the dates corresponding to the each week given today's date
      */
     const getNextDays = (pastDates) => {
+        /**
+         * Find the numer of days we need to fill up 5 weeks and loop over that
+         */
         const weeks = [pastDates, [], [], [], []]
         const numOfDays = 35-pastDates.length
         let currWeek = 0
 
         for (var currDay = 0; currDay < numOfDays; currDay++) {
+            /** 
+             * get the day and push into current week list, and move on to
+             * next week once the list has 7 days.
+             */
             const getDay = moment().add(currDay, 'days').format('l')
             weeks[currWeek].push(getDay)
             if (weeks[currWeek].length === 7) {
@@ -63,7 +56,7 @@ const CreateDates = () => {
         return weeks
     }
 
-    const currentDay = findCurrentDay()
+    const currentDay = convertDayToNum[moment().format('ddd')]
     const pastDates = getPastDates(currentDay)
     const weeks = getNextDays(pastDates)
     console.log("Dates for each Weeks:")
@@ -86,7 +79,11 @@ const CreateDates = () => {
     return (
         <div>
             Current Dates
-            <DateBoxes />
+            <DateBoxes week={weeks[0]} flagToday={true} today={currentDay}/>
+            <DateBoxes week={weeks[1]} flagToday={false}/>
+            <DateBoxes week={weeks[2]} flagToday={false}/>
+            <DateBoxes week={weeks[3]} flagToday={false}/>
+            <DateBoxes week={weeks[4]} flagToday={false}/>
         </div>
     )
 }

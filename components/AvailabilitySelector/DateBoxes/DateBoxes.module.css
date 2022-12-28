@@ -1,0 +1,21 @@
+.btn_square_month {
+    width: 25px;
+    height:25px;
+    text-align: center;
+    margin: 2px;
+    padding: 0px;
+    font-size:12px;
+}
+
+.btn_square_date {
+width: 25px;
+height:25px;
+text-align: center;
+margin: 2px;
+padding: 0px;
+font-size:12px;
+/* border-radius: 20%; */
+cursor: pointer;
+box-shadow: 0 2px 4px black;
+}
+

@@ -12,14 +12,13 @@ class AvailabilitySelector extends Component {
     }
 
     onChangeAvailabilityMode = (event) => {
-        console.log(event.target.value)
         this.setState({availabilityMode: event.target.value})
     }
     render() {
         const {availabilityMode} = this.state
         return (
             <div>
-                <SelectMode onChangeAvailabilityMode={this.onChangeAvailabilityMode}/>
+                <SelectMode onChangeAvailabilityMode={this.onChangeAvailabilityMode} availabilityMode={availabilityMode}/>
             {
                 availabilityMode === 'Specific Dates'
                 ? <SpecificDate />

@@ -1,3 +1,8 @@
 .availwrapper {
   display: flex;
 }
+
+.btn-square-md {
+  border-radius: 0;
+  }
+  
