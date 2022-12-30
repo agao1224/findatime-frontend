@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
-import DateBoxes from '../DateBoxes/DateBoxes'
+import Dates from '../ScheduleComponents/Dates/Dates'
+import DaysRow from '../ScheduleComponents/DaysRow/DaysRow'
+
 
 const CreateDates = () => {    
     /**
@@ -73,11 +75,12 @@ const CreateDates = () => {
     return (
         <div>
             Current Dates
-            <DateBoxes week={weeks[0]} flagToday={true} today={currentDay}/>
-            <DateBoxes week={weeks[1]} flagToday={false}/>
-            <DateBoxes week={weeks[2]} flagToday={false}/>
-            <DateBoxes week={weeks[3]} flagToday={false}/>
-            <DateBoxes week={weeks[4]} flagToday={false}/>
+            <DaysRow />
+            <Dates week={weeks[0]} flagToday={true} today={currentDay}/>
+            <Dates week={weeks[1]} />
+            <Dates week={weeks[2]} />
+            <Dates week={weeks[3]} />
+            <Dates week={weeks[4]} />
         </div>
     )
 }
